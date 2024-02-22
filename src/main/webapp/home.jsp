@@ -148,7 +148,7 @@
     <a href="#" class="active">Home</a>
     <div class="navbar-right">
         <a href="/book_store/logout" style="float: right;">Logout</a>
-        <a href="cart.jsp" style="float: right;">Cart</a>
+        <a href="/book_store/cart" style="float: right;">Cart</a>
     </div>
 </div>
     <div class="container">

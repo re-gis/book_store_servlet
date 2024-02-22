@@ -139,7 +139,7 @@ li a:hover {
         <a href="/logout">Logout</a>
     <% } else { %>
         <a href="/book_store/logout">Logout</a>
-        <a href="cart.jsp">Cart</a>
+        <a href="/book_store/cart">Cart</a>
 <% } %>
     </div>
 </div>

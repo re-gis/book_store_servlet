@@ -26,8 +26,6 @@ public class BookDetailServlet extends HttpServlet {
 
             HttpSession session = req.getSession(true);
             session.setAttribute("book", book);
-            System.out.println(session.getAttribute("book"));
-            System.out.println(book);
             resp.sendRedirect("bookDetails.jsp");
         } catch (Exception e) {
             e.printStackTrace();

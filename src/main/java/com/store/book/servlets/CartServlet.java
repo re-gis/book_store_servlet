@@ -19,30 +19,34 @@ import com.store.book.utils.GetBookById;
 public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Book> books = new ArrayList<>();
+        List<Book> books = new ArrayList<Book>();
         try {
+
             HttpSession session = req.getSession(true);
             String email = session.getAttribute("email").toString();
 
             // Retrieve cart items for the current user
             List<Integer> cartItems = CartUtils.getCartItemsByOwner(email);
+            System.out.println(cartItems);
+            System.out.println("nice");
+            session.setAttribute("items", cartItems);
 
-            // Iterate over the cart items and retrieve the corresponding books
-            for (int itemId : cartItems) {
-                Book book = GetBookById.getBookById(itemId);
-                if (book != null) {
-                    books.add(book);
-                }
+            for (Integer item : cartItems) {
+                // get the book from the database using the cartitem
+                Book book = GetBookById.getBookById(item);
+                books.add(book);
             }
-            System.out.println(session.getAttribute("items"));
-            // Set the list of books in the session attribute
-            session.setAttribute("items", books);
+
+            session.setAttribute("cart_books", books);
+            System.out.println(session.getAttribute("cart_books"));
 
             // Redirect to cart.jsp
             resp.sendRedirect("cart.jsp");
-        } catch (SQLException e) {
+            return;
+        } catch (Exception e) {
             // Redirect to cart.jsp with error code 500
             resp.sendRedirect("cart.jsp?error=500");
+            return;
         }
     }
 }

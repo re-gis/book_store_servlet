@@ -14,6 +14,6 @@ import lombok.Setter;
 public class Cart {
     private int id;
     private String owner;
-    private int[] items;
+    private String[] items;
     private boolean delivered;
 }

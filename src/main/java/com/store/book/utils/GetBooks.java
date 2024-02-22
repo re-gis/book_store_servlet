@@ -27,8 +27,6 @@ public class GetBooks {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("books");
-        System.out.println(books);
         return books;
     }
 }

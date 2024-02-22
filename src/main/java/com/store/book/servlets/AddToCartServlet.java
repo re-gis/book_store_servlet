@@ -19,13 +19,12 @@ public class AddToCartServlet extends HttpServlet {
             HttpSession session = req.getSession(true);
             String email = session.getAttribute("email").toString();
             int bookId = Integer.parseInt(req.getParameter("bookId"));
-
+            String bId = String.valueOf(bookId);
             // Add the book to the user's cart
-            Cart cart = CartUtils.addToCart(bookId, email);
+            Cart cart = CartUtils.addToCart(bId, email);
             if (cart == null) {
                 resp.sendRedirect("bookDetails.jsp?error=500");
             }
-
 
             session.setAttribute("cart", cart);
             resp.sendRedirect("cart.jsp");

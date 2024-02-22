@@ -105,11 +105,11 @@
     if (role1 != null && role1.equals("admin")) { 
     %>
 <a href="admin.jsp">Home</a>
-        <a href="logout.jsp">Logout</a>
+        <a href="/book_store/logout">Logout</a>
     <% } else { %>
     <a href="home.jsp">Home</a>
-        <a href="logout.jsp">Logout</a>
-        <a href="cart.jsp">Cart</a>
+        <a href="/book_store/logout">Logout</a>
+        <a href="/book_store/cart">Cart</a>
 <% } %>
 
 

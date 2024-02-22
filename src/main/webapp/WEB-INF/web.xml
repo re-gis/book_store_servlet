@@ -84,6 +84,16 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>com.store.book.servlets.CartServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/cart</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>AdminFilter</filter-name>
     <filter-class>com.store.book.filters.AdminUserFilter</filter-class>
@@ -94,15 +104,7 @@
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
 
-  <filter>
-    <filter-name>AddToCartFilter</filter-name>
-    <filter-class>com.store.book.filters.AddToCartFilter</filter-class>
-  </filter>
 
-  <filter-mapping>
-    <filter-name>AddToCartFilter</filter-name>
-    <url-pattern>/cart/*</url-pattern>
-  </filter-mapping>
 
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
