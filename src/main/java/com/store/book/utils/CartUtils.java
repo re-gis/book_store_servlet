@@ -101,4 +101,16 @@ public class CartUtils {
 
         return cartItems;
     }
+
+    public static boolean deleteCart(int cartId) {
+        try (
+                Connection connection = DatabaseUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement("DELETE FROM cart WHERE id = ?")) {
+            statement.setInt(1, cartId);
+            return statement.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

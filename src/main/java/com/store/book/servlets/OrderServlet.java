@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.store.book.beans.Book;
 import com.store.book.beans.Cart;
+import com.store.book.utils.CartUtils;
 import com.store.book.utils.OrderUtils;
 
 public class OrderServlet extends HttpServlet {
@@ -34,17 +35,24 @@ public class OrderServlet extends HttpServlet {
             List<Book> books = (List<Book>) session.getAttribute("cart_books");
 
             Cart cart = (Cart) session.getAttribute("cart");
-            int cartId = (int) cart.getId();
+            if (cart != null) {
+                int cartId = (int) cart.getId();
+                if (!OrderUtils.PlaceOrder(useremail, cartId, country, province, district)) {
+                    resp.sendRedirect("error.jsp");
+                    return;
+                }
+                session.removeAttribute("cart");
+                session.removeAttribute("cart_books");
+                session.removeAttribute("items");
 
-            if(!OrderUtils.PlaceOrder(useremail, cartId, country, province, district)){
-                resp.sendRedirect("error.jsp");
+                // first delete the cart and the session
+                if (!CartUtils.deleteCart(cartId)) {
+                    resp.sendRedirect("error.jsp");
+                    return;
+                }
+                resp.sendRedirect("home.jsp");
                 return;
             }
-
-            session.removeAttribute("cart");
-            session.removeAttribute("cart_books");
-            session.removeAttribute("items");
-            resp.sendRedirect("home.jsp");
 
         } catch (Exception e) {
             e.printStackTrace();

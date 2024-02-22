@@ -94,6 +94,16 @@
     <servlet-name>CartServlet</servlet-name>
     <url-pattern>/cart</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.store.book.servlets.OrderServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/order</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>AdminFilter</filter-name>
     <filter-class>com.store.book.filters.AdminUserFilter</filter-class>

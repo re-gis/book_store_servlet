@@ -1,8 +1,10 @@
 package com.store.book.servlets;
 
 import com.store.book.beans.Book;
+import com.store.book.beans.Cart;
 import com.store.book.beans.User;
 import com.store.book.enums.URole;
+import com.store.book.utils.CartUtils;
 import com.store.book.utils.DatabaseUtil;
 import com.store.book.utils.GetBooks;
 
@@ -51,8 +53,10 @@ public class LoginServlet extends HttpServlet {
                     response.sendRedirect("admin.jsp");
                     return;
                 } else {
+                    Cart cart = CartUtils.GetCartByOwner(email);
                     String r = "user";
                     session.setAttribute("role", r);
+                    session.setAttribute("cart", cart);
                     response.sendRedirect("home.jsp");
                     return;
                 }

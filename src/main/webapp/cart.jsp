@@ -26,6 +26,17 @@
             margin: 20px auto;
         }
 
+        .card-container {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        input {
+            outline: none;
+        }
+
         /* Card */
         .card {
             background-color: #fff;
@@ -88,14 +99,14 @@
 
         /* Login Button */
         .btn-login {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
+            background-color: #4CAF50 !important;
+            color: white !important;
+            padding: 14px 20px !important;
+            margin: 8px 0 !important;
+            border: none !important;
+            border-radius: 4px !important;
+            cursor: pointer !important;
+            width: 100% !important;
         }
 
         .btn-login:hover {
@@ -103,16 +114,17 @@
         }
 
         .delete-btn {
-            background-color: red;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 8px 16px;
-            cursor: pointer;
+            background-color: red !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 4px !important;
+            padding: 8px 16px !important;
+            cursor: pointer !important;
+            width: 30% !important;
         }
 
         .delete-btn:hover {
-            background-color: #cc0000;
+            background-color: #cc0000 !important;
         }
 
         /* Responsive Design */
@@ -170,24 +182,52 @@
     float: right;
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
+/* Place Order button */
+        .place-order-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 14px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 100%;
+        }
 
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
+        .place-order-btn:hover {
+            background-color: #45a049;
+        }
 
-.navbar a.active {
-    background-color: #4CAF50;
-    color: white;
-}
+        /* Form styling */
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -219,8 +259,11 @@
         </div>
         <!-- Place Order button -->
         <form action="order" method="post">
-        <input type="submit" class="place-order-btn" value="Place Order" />
-        </form>
+    <input type="text" name="country" placeholder="Country" required />
+    <input type="text" name="province" placeholder="Province" required />
+    <input type="text" name="district" placeholder="District" required />
+    <input type="submit" class="place-order-btn" value="Place Order" />
+</form>
     <% } else { %>
         <p>Your cart is empty.</p>
     <% } %>
