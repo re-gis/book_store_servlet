@@ -250,7 +250,7 @@
                         <h3 class="card-title"><a href="bookDetails.jsp?id=<%= book.getId() %>"><%= book.getTitle() %></a></h3>
                         <p class="card-text"><strong>Author:</strong> <%= book.getAuthor() %></p>
                         <p class="card-text"><strong>Price:</strong> $<%= book.getPrice() %></p>
-                        <form action="remove-from-cart" method="post">
+                        <form action="remove_cart" method="post">
                         <input class="delete-btn" value="Remove from Cart" type="submit" />
                         </form>
                     </div>

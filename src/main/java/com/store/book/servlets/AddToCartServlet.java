@@ -18,7 +18,17 @@ public class AddToCartServlet extends HttpServlet {
             // get the current user the book id
             HttpSession session = req.getSession(true);
             String email = session.getAttribute("email").toString();
-            int bookId = Integer.parseInt(req.getParameter("bookId"));
+            if(email == null){
+                return;
+            }
+            String bookIdParam = req.getParameter("bookId");
+            if (bookIdParam == null) {
+                // Handle the case where bookId is null, such as redirecting to an error page
+                resp.sendRedirect("bookDetails.jsp?error=400");
+                return; // End the method execution
+            }
+
+            int bookId = Integer.parseInt(bookIdParam);
             String bId = String.valueOf(bookId);
             // Add the book to the user's cart
             Cart cart = CartUtils.addToCart(bId, email);
@@ -27,7 +37,8 @@ public class AddToCartServlet extends HttpServlet {
             }
 
             session.setAttribute("cart", cart);
-            resp.sendRedirect("cart.jsp");
+            resp.sendRedirect("home.jsp");
+            return;
         } catch (Exception e) {
             e.printStackTrace();
             resp.sendRedirect("bookDetails.jsp?error=500");

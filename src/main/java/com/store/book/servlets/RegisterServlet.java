@@ -1,8 +1,6 @@
 package com.store.book.servlets;
 
-import com.store.book.beans.Book;
 import com.store.book.beans.User;
-import com.store.book.dto.UserDTO;
 import com.store.book.enums.URole;
 import com.store.book.utils.DatabaseUtil;
 
@@ -15,8 +13,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class RegisterServlet extends HttpServlet {
