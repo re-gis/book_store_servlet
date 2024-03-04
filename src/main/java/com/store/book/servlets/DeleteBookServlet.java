@@ -29,7 +29,6 @@ public class DeleteBookServlet extends HttpServlet {
         String bookId = request.getParameter("bookId");
         if (bookId != null) {
             try {
-                System.out.println(bookId);
                 int id = Integer.parseInt(bookId);
                 boolean deleted = deleteBook(id);
                 if (deleted) {

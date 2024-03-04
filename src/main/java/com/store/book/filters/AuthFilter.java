@@ -34,9 +34,9 @@ public class AuthFilter implements Filter{
         String requestURI = httpRequest.getRequestURI();
         boolean isLoginPage = requestURI.endsWith("login.jsp") || requestURI.endsWith("login");
         boolean isSignupPage = requestURI.endsWith("register.jsp") || requestURI.endsWith("register");
+        boolean isOrder = requestURI.endsWith("order.jsp") || requestURI.endsWith("orders");
 
-        if (isLoggedIn && (isLoginPage || isSignupPage)) {
-
+        if (isLoggedIn && (isLoginPage || isSignupPage || isOrder)) {
             httpResponse.sendRedirect("home.jsp");
         } else {
 

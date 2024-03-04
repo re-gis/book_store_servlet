@@ -107,14 +107,34 @@
 
 
 
-<servlet>
-  <servlet-name>DeleteFromCart</servlet-name>
-  <servlet-class>com.store.book.servlets.DeleteFromCartServlet</servlet-class>
-</servlet>
+  <servlet>
+    <servlet-name>DeleteFromCart</servlet-name>
+    <servlet-class>com.store.book.servlets.DeleteFromCartServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>DeleteFromCart</servlet-name>
     <url-pattern>/remove_cart</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>OrdersServlet</servlet-name>
+    <servlet-class>com.store.book.servlets.AdminOrderServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>OrdersServlet</servlet-name>
+    <url-pattern>/orders</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DeliverServlet</servlet-name>
+    <servlet-class>com.store.book.servlets.DeliverServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>DeliverServlet</servlet-name>
+    <url-pattern>/deliver</url-pattern>
   </servlet-mapping>
 
   <filter>

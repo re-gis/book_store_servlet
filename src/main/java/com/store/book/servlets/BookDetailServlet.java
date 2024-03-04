@@ -1,7 +1,6 @@
 package com.store.book.servlets;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,7 +1,6 @@
 package com.store.book.servlets;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.store.book.beans.Book;
-import com.store.book.beans.Cart;
 import com.store.book.utils.CartUtils;
 import com.store.book.utils.GetBookById;
 
@@ -27,8 +25,6 @@ public class CartServlet extends HttpServlet {
 
             // Retrieve cart items for the current user
             List<Integer> cartItems = CartUtils.getCartItemsByOwner(email);
-            System.out.println(cartItems);
-            System.out.println("nice");
             session.setAttribute("items", cartItems);
 
             for (Integer item : cartItems) {
@@ -38,7 +34,6 @@ public class CartServlet extends HttpServlet {
             }
 
             session.setAttribute("cart_books", books);
-            System.out.println(session.getAttribute("cart_books"));
 
             // Redirect to cart.jsp
             resp.sendRedirect("cart.jsp");

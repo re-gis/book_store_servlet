@@ -1,8 +1,6 @@
 package com.store.book.servlets;
 
 import com.store.book.beans.Book;
-import com.store.book.dto.BookDTO;
-import com.store.book.dto.UserDTO;
 import com.store.book.utils.DatabaseUtil;
 import com.store.book.utils.GetBooks;
 
@@ -15,9 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AddBookServlet extends HttpServlet {

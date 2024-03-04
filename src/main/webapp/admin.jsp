@@ -137,6 +137,7 @@ li a:hover {
     if (role1 != null && role1.equals("admin")) { 
     %>
         <a href="/book_store/logout">Logout</a>
+        <a href="/book_store/orders">Orders</a>
     <% } else { %>
         <a href="/book_store/logout">Logout</a>
         <a href="/book_store/cart">Cart</a>

@@ -16,7 +16,6 @@ public class DeleteFromCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             HttpSession session = req.getSession(true);
-            System.out.println(session.getAttribute("cart"));
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 resp.sendRedirect("cart.jsp?error=404");
