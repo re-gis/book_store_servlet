@@ -37,6 +37,10 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("login.jsp?error=1");
                 return;
             }
+
+
+            
+
             User user = authenticateUser(email, password);
             if (user != null) {
                 HttpSession session = request.getSession(true);
