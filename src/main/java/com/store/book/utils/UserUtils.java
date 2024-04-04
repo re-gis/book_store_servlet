@@ -12,6 +12,7 @@ public class UserUtils {
                 Connection conn = DatabaseUtil.getConnection();
                 PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE email = ?")) {
             stmt.setString(1, email);
+            // adding the comment
             ResultSet set = stmt.executeQuery();
             String e = set.getString("email");
             String uname = set.getString("username");
